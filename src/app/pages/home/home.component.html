@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="logo"><img src="assets/img/logo-covinoc.png" alt="Imagen 1"></div>
+    <app-add-task></app-add-task>
+    <app-reusable-table [columns]="columns" [data]="data" (delete)="deleteTask($event)"
+        (complete)="updateTask($event)">
+    </app-reusable-table>
+</div>

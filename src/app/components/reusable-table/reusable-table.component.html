@@ -1,0 +1,40 @@
+<!-- src/app/components/data/data.component.html -->
+
+<div class="container">
+  <div class="search">
+    <div class="title">
+      <span><i class="fa-solid fa-list-check"></i></span>
+      <span class="list-title">Lista de tareas</span>
+    </div>
+    <app-search></app-search>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr  >
+          <th *ngFor="let column of columns">{{ column.header }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of (data || []) | paginate: { itemsPerPage: 5, currentPage: page }">
+          <td *ngFor="let column of columns" [ngClass]="{'completed-task': row.completed}">
+            <ng-container *ngIf="column.field !== 'completed' && column.field !== 'delete'">
+              {{ row[column.field] }}
+            </ng-container>
+            <ng-container *ngIf="column.field === 'completed'">
+              <input class="completed-checkbox" type="checkbox" (change)="onComplete(row.id, $event)"
+                [checked]="row.completed" >
+            </ng-container>
+            <ng-container *ngIf="column.field === 'delete'">
+              <i class="far fa-trash-alt" (click)="onDelete(row.id)"></i>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <pagination-controls class="my-pagination" (pageChange)="page = $event" previousLabel=""
+    nextLabel=""></pagination-controls>
+</div>

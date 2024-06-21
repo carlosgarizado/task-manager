@@ -1,0 +1,22 @@
+<div class="search-item">
+  <div class="container-information">
+    <span>
+      <i
+        class="fa-regular fa-circle-xmark icon-clean"
+        (click)="limpiarInput()"
+        *ngIf="search"
+      ></i>
+    </span>
+    <input
+      (focus)="onInputFocus()"
+      (blur)="onInputBlur()"
+      type="text"
+      placeholder="Buscar.."
+      (keyup.enter)="searchEnter()"
+      [(ngModel)]="search"
+    />
+  </div>
+  <div class="icon-search" (click)="searchEnter()">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </div>
+</div>

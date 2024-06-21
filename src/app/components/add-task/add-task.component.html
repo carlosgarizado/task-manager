@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="container-form">
+        <div class="title">
+            <span class="title-sign">+</span>
+            <span class="title-text">Nueva tarea</span>
+        </div>
+        <div class="forms">
+            <div class="title-input">
+                <span>Título</span>
+                <input type="text" placeholder="Ingrese título…"[(ngModel)]="taskTitle">
+              </div>    
+              <div class="completed-task">
+                <span class="description">Tarea completada</span>
+                <input type="checkbox"  [(ngModel)]="completed">
+              </div>
+              <div class="button-save"><button (click)="addTask()"><span>+</span>Guardar tarea</button></div>
+        </div>
+    </div> 
+</div>
