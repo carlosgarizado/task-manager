@@ -1,6 +1,6 @@
 <div class="search-item">
   <div class="container-information">
-    <span>
+    <span *ngIf="searchText">
       <i class="fa-regular fa-circle-xmark icon-clean" (click)="searchText = '';  this.searchTextChanged.emit('');"></i>
     </span>
     <input type="text" placeholder="Buscar.."  [(ngModel)]="searchText"  (ngModelChange)="onSearch($event)"/>
