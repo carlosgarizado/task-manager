@@ -7,27 +7,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
   
-  @Output() enterEvent = new EventEmitter<string>();
-  public inputEnFoco: boolean = false;
-  public search!: string;
-
+  @Output() searchTextChanged = new EventEmitter<string>();
+  searchText: string = "";
 
   constructor() {}
 
   ngOnInit() {}
 
-  onInputFocus() {
-    this.inputEnFoco = true;
-  }
-
-  onInputBlur() {
-    this.inputEnFoco = false;
-  }
-  limpiarInput() {
-    this.search = '';
-  }
-
-  searchEnter(){
-    this.enterEvent.next(this.search)
+  onSearch(value: string) {
+    this.searchTextChanged.emit(value);
   }
 }

@@ -10,7 +10,7 @@ import { columns} from 'src/app/const/columns';
 })
 export class HomeComponent implements OnInit {
 columns = columns;
-
+searchText = '';
 data : ITask[] = []
 
   constructor(private _taskService : TaskService) { }
@@ -72,5 +72,9 @@ data : ITask[] = []
         console.error('Error al actualizar la tarea:', error);
       }
     );
+  }
+
+  onSearchTextChanged(searchText: string) {
+    this.searchText = searchText;
   }
 }

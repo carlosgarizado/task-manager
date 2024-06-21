@@ -6,7 +6,7 @@
       <span><i class="fa-solid fa-list-check"></i></span>
       <span class="list-title">Lista de tareas</span>
     </div>
-    <app-search></app-search>
+    <app-search (searchTextChanged)="searchText = $event"></app-search>
   </div>
 
   <div class="table-container">
@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let row of (data || []) | paginate: { itemsPerPage: 5, currentPage: page }">
+        <tr *ngFor="let row of (data || []) | search: searchText: ['id', 'title'] | paginate: { itemsPerPage: 5, currentPage: page }">
           <td *ngFor="let column of columns" [ngClass]="{'completed-task': row.completed}">
             <ng-container *ngIf="column.field !== 'completed' && column.field !== 'delete'">
               {{ row[column.field] }}

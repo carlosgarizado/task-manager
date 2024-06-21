@@ -1,22 +1,11 @@
 <div class="search-item">
   <div class="container-information">
     <span>
-      <i
-        class="fa-regular fa-circle-xmark icon-clean"
-        (click)="limpiarInput()"
-        *ngIf="search"
-      ></i>
+      <i class="fa-regular fa-circle-xmark icon-clean" (click)="searchText = '';  this.searchTextChanged.emit('');"></i>
     </span>
-    <input
-      (focus)="onInputFocus()"
-      (blur)="onInputBlur()"
-      type="text"
-      placeholder="Buscar.."
-      (keyup.enter)="searchEnter()"
-      [(ngModel)]="search"
-    />
+    <input type="text" placeholder="Buscar.."  [(ngModel)]="searchText"  (ngModelChange)="onSearch($event)"/>
   </div>
-  <div class="icon-search" (click)="searchEnter()">
+  <div class="icon-search">
     <i class="fa-solid fa-magnifying-glass"></i>
   </div>
 </div>

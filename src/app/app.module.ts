@@ -10,6 +10,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchPipe } from './pipes/search.pipe';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     AddTaskComponent,
     HomeComponent,
     ReusableTableComponent,
-    SearchComponent
+    SearchComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

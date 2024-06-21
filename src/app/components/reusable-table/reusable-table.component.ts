@@ -10,9 +10,11 @@ export class ReusableTableComponent implements OnInit {
   @Input() data?: any[] =[];
   @Output() delete = new EventEmitter<string>();
   @Output() complete = new EventEmitter<{ id: string, completed: boolean }>();
+  @Input() searchText = '';
   currentPage = 1;
   itemsPerPage = 10;
-public page = 1;
+  
+  public page = 1;
   constructor() { }
 
   ngOnInit(): void {
