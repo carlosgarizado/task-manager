@@ -18,9 +18,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let row of (data || []) | search: searchText: ['id', 'title'] | paginate: { itemsPerPage: 5, currentPage: page }">
-          <td *ngFor="let column of columns" [ngClass]="{'completed-task': row.completed}">
+          <td *ngFor="let column of columns" >
             <ng-container *ngIf="column.field !== 'completed' && column.field !== 'delete'">
-              {{ row[column.field] }}
+              <span [ngClass]="{'completed-task': row.completed && column.field === 'title'}">
+                {{ row[column.field] }}
+              </span>
             </ng-container>
             <ng-container *ngIf="column.field === 'completed'">
               <input class="completed-checkbox" type="checkbox" (change)="onComplete(row.id, $event)"
