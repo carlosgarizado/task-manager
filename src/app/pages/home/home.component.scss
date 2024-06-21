@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-  
+
     .logo {
         width: 100%;
         height: 90px;
@@ -17,4 +17,39 @@
 
         }
     }
+
+    .github-repo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        color: #FFFFFF;
+
+        .fixed-icon {
+            background-color: #FFFF;
+            color: #cc5de8;
+            font-size: 50px;
+            border-radius: 50%;
+        }
+
+        span {
+            margin-top: 7px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            letter-spacing: 0.39px;
+            color: #00000099;
+            opacity: 1;
+        }
+    }
+
 }
